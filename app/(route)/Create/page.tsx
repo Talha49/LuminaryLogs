@@ -87,23 +87,24 @@ const Create = () => {
             })
         });
 
-       
         if (res.ok) {
-          setToast({ show: true, message: 'Created successfully!', type: 'success' });
+            setToast({ show: true, message: 'Created successfully!', type: 'success' });
             const data = await res.json();
             console.log(data);
-            if(data && data.success) {
-              setFormData(initialBlogFormData)
-              router.push("/Blogs")
+            if (data && data.success) {
+                setFormData(initialBlogFormData)
+                router.push("/Blogs")
             }
         } else {
-          setToast({ show: true, message: error.message, type: 'error' });
+            setToast({ show: true, message: 'Failed to save blog post', type: 'error' });
             console.log("Failed to save blog post:", res.status, res.statusText);
         }
     } catch (error) {
         console.log("Error:", error);
     }
 }
+
+
 
 
   return (
