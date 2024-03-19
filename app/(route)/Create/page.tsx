@@ -174,29 +174,28 @@ const Create = () => {
                     />
                   ) : control.component === 'select' ? (
                     <select
-                      name={control.id}
-                      placeholder={control.placeholder}
-                      value={formData[control.id as keyof BlogFormData]}
-                      onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>{
-                        setFormData({
-                          ...formData,
-                          [control.id]:event.target.value
-                        })
-                      }}
-                      className="w-full rounded-md border border-gray-300 dark:border-gray-600 py-3 px-4 text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-primary focus-visible:shadow-none dark:bg-gray-700 dark:shadow-lg"
-                    >
-                      <option value={''}>Select</option>
-                      {control.options.map((optionItems, index) => (
-                        <option
-                          key={index}
-                          value={optionItems.value}
-                          id={optionItems.value}
-                         
-                        >
-                          {optionItems.label}
-                        </option>
-                      ))}
-                    </select>
+                    name={control.id}
+                    value={formData[control.id as keyof BlogFormData]}
+                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+                      setFormData({
+                        ...formData,
+                        [control.id]: event.target.value
+                      })
+                    }}
+                    className="w-full rounded-md border border-gray-300 dark:border-gray-600 py-3 px-4 text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-primary focus-visible:shadow-none dark:bg-gray-700 dark:shadow-lg"
+                  >
+                    <option value={''}>Select</option>
+                    {control.options.map((optionItems, index) => (
+                      <option
+                        key={index}
+                        value={optionItems.value}
+                        id={optionItems.value}
+                      >
+                        {optionItems.label}
+                      </option>
+                    ))}
+                  </select>
+                  
                   ) : null}
                 </div>
               ))}
