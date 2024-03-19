@@ -108,7 +108,7 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                 </li>
               ))
             ) : (
-              <h1>No Related blogs available</h1>
+              <li>No Related blogs available</li>
             )}
           </ul>
         </div>
