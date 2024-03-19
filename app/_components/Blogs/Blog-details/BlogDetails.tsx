@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Blog } from '@/utils/type';
+import  Blog  from '@/utils/type';
 import Link from 'next/link';  
 import Button from '@/Components/Button/button';
 import { useSession } from 'next-auth/react';
