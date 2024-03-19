@@ -5,7 +5,7 @@ import { FaTrash } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image'; // Import Image component from next/image
 
-const SingleBlog = ({ BlogItem, handleDelete }: { BlogItem: typeof Blog, handleDelete: (id: number) => void }) => {
+const SingleBlog = ({ BlogItem, handleDelete }: { BlogItem:  Blog, handleDelete: (id: number) => void }) => {
   const { data: session } = useSession();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
