@@ -25,7 +25,7 @@ export interface BlogFormData {
     category : string;
 }
 
-export interface Blog{
+export default interface Blog{
     id : number;
     title : string;
     description : string;

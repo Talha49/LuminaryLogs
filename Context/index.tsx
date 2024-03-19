@@ -10,12 +10,12 @@ type ContextType ={
     loading: boolean;
     setLoading: Dispatch<SetStateAction<boolean>>;
     formData: BlogFormData;
-    setFormData:Dispatch<SetStateAction<BlogFormData>>;
+    setFormData: Dispatch<SetStateAction<BlogFormData>>;
     searchQuery: string;
-    setSearchQuery:Dispatch<SetStateAction<string>>;
-    searchResults: Blog[],
-    setSearchResults:Dispatch<SetStateAction<Blog>>
-} 
+    setSearchQuery: Dispatch<SetStateAction<string>>;
+    searchResults: Blog[]; // Corrected type here
+    setSearchResults: Dispatch<SetStateAction<Blog[]>>; // Corrected type here
+}
 
 
 
