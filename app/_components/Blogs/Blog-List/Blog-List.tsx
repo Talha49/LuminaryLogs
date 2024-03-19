@@ -38,7 +38,8 @@ const BlogList: React.FC<BlogListProps> = ({ lists }) => {
         throw new Error('Failed to delete.');
       }
     } catch (error) {
-      setToast({ show: true, message: error.message, type: 'error' }); // Show error toast
+      setToast({ show: true, message: 'Failed to save blog post', type: 'error' });
+
     }
   }
 
