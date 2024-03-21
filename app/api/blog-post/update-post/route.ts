@@ -13,7 +13,7 @@ export async function DELETE(req: NextRequest) {
             }, { status: 400 });
         }
 
-        const deletedPost = await prisma.POST.delete({
+        const deletedPost = await prisma.pOST.delete({
             where: {
                 id: parseInt(postId)
             }
