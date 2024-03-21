@@ -1,36 +1,40 @@
 import prisma from "@/database";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(request: NextRequest) {
-  try {
-    const extractData = await request.json();
+export async function DELETE(req: NextRequest) {
+    try {
+        const url = new URL(req.url);
+        const postId = url.searchParams.get('id');
 
-    const updatedBlogPost = await prisma.pOST.update({
-      where: {
-        id: Number(extractData.id),
-      },
-      data: {
-        comments: extractData.comments,
-      },
-    });
+        if (!postId) {
+            return NextResponse.json({
+                success: false,
+                message: 'Post ID is missing in the request URL.'
+            }, { status: 400 });
+        }
 
-    if (updatedBlogPost) {
-      return NextResponse.json({
-        success: true,
-        message: "Blog post updated",
-      });
-    } else {
-      return NextResponse.json({
-        success: false,
-        message: "failed to update the post ! Please try again",
-      });
+        const deletedPost = await prisma.POST.delete({
+            where: {
+                id: parseInt(postId)
+            }
+        });
+
+        if (deletedPost) {
+            return NextResponse.json({
+                success: true,
+                message: 'Post deleted successfully.'
+            });
+        } else {
+            return NextResponse.json({
+                success: false,
+                message: 'Failed to delete post.'
+            });
+        }
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        return NextResponse.json({
+            success: false,
+            message: 'Internal server error occurred.'
+        }, { status: 500 });
     }
-  } catch (e) {
-    console.log(e);
-
-    return NextResponse.json({
-      success: false,
-      message: "Something went wrong ! Please try again",
-    });
-  }
 }
