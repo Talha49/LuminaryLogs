@@ -70,7 +70,7 @@ const Search = () => {
   async function handleDelete(id: number) {
     console.log(id);
 
-    const res = await fetch(`/api/blog-post/delete-post?id=${id}`, {
+    const res = await fetch(`http://localhost:3000/api/blog-post/delete-post?id=${id}`, {
       method: "DELETE",
       cache: "no-store",
     });

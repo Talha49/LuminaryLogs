@@ -74,7 +74,7 @@ const Create = () => {
   const HandleSaveBlogForm = async () => {
     setToast({ show: true, message: 'Creating...', type: 'loading' })
     try {
-        const res = await fetch("/api/blog-post/add-post", {
+        const res = await fetch("http://localhost:3000/api/blog-post/add-post", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
